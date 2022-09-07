@@ -4,3 +4,5 @@ Scripts for collecting data to train the model that identifies the chessboard, p
 ## Requirements
 - Python (Current version tested with 3.9.7).
 - Selenium Chromium web driver.
+
+![alt text]([https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true](https://github.com/RuadhanMulcahy/Training-Data-Collector/blob/main/sample_output/56307957261%3Fusername%3D2016ratman2016_move_25_1.png))
