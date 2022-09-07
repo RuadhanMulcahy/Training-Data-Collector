@@ -13,7 +13,7 @@ def enrich_image(element, original_image_path):
 
     upper_limit = int(((remaining_height / h) * 100) + 100)
 
-    lower_limit = 50
+    lower_limit = 10
     scale = random.randint(lower_limit, upper_limit) / 100
     cropped_image = image[y:y+h, x:x+w]
     scaled_image = cv2.resize(cropped_image, (0,0), fx=scale, fy=scale) 

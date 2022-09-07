@@ -23,14 +23,15 @@ def label_board(driver, move_number, game_name, option):
     image_path = f"training_data/images/{flags['train_or_val']}/{full_name}.png"
     actions.take_screenshot(driver, image_path)
 
-    board = driver.find_element(By.XPATH, f"//*[@id='board-dailyGame-{flags['game_id']}']")
+    board = driver.find_element(By.XPATH, '//*[@id="board-single"]')
     scale, image_w, image_h, x_offset, y_offset, old_x, old_y = enrich_image(board, image_path)
-    label_element(driver, f"//*[@id='board-dailyGame-{flags['game_id']}']", image_path, image_w, image_h, full_name, scale, x_offset, y_offset, old_x, old_y)
+    label_element(driver, '//*[@id="board-single"]', image_path, image_w, image_h, full_name, scale, x_offset, y_offset, old_x, old_y)
 
     i = 1
+
     while(True):
         try:
-            label_element(driver, f"//*[@id='board-dailyGame-{flags['game_id']}']/div[{str(i)}]", image_path, image_w, image_h, full_name, scale, x_offset, y_offset, old_x, old_y)
+            label_element(driver, f"//*[@id='board-single']/div[{str(i)}]", image_path, image_w, image_h, full_name, scale, x_offset, y_offset, old_x, old_y)
         except NoSuchElementException:
             break
         i += 1
@@ -52,6 +53,7 @@ def label_element(driver, xpath, image_path, image_w, image_h, file_name, scale,
     transformed_y = y_offset + distance_from_bord_corner_y
     convert_co_ords_to_darknet(image_w, image_h, scaled_w, scaled_h, transformed_x, transformed_y, class_name, f"training_data/labels/{flags['train_or_val']}", file_name)
 
+    print(flags['highlight'])
     if flags['highlight'] is True:
         screenshot = cv2.imread(image_path)
         cv2.rectangle(screenshot, (transformed_x, transformed_y), (transformed_x + scaled_w ,transformed_y + scaled_h), (0,255,0), 2)
