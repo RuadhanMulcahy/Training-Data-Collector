@@ -12,10 +12,11 @@ To run the application use run.py followed by arguments shown below:
 - "--highlight" Will highlight elements in image for demo purposes.
 - "--style" Sets board style - default is 1.
 
-## Sample Output
+## Sample OutputTraining-Data-Collector
+
 ### Training Image
-Board has been extracted from the original screenshot and has been resized, re-positioned and super imposed on a <br/>random background image <br/>
-<img src="https://github.com/RuadhanMulcahy/Training-Data-Collector/blob/main/sample_output/48340232755_move_169_1.png" width="80%">
+Board has been extracted from the original screenshot and has been resized, re-positioned <br/>and super imposed on a random background image <br/> <br/>
+<img src="https://github.com/RuadhanMulcahy/Training-Data-Collector/blob/main/sample_output/48340232755_move_169_1.png" width="60%">
 
 ### Corresponding Label File
 Label file in darknet format with location of each element from the above image:
