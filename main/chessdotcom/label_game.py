@@ -53,7 +53,6 @@ def label_element(driver, xpath, image_path, image_w, image_h, file_name, scale,
     transformed_y = y_offset + distance_from_bord_corner_y
     convert_co_ords_to_darknet(image_w, image_h, scaled_w, scaled_h, transformed_x, transformed_y, class_name, f"training_data/labels/{flags['train_or_val']}", file_name)
 
-    print(flags['highlight'])
     if flags['highlight'] is True:
         screenshot = cv2.imread(image_path)
         cv2.rectangle(screenshot, (transformed_x, transformed_y), (transformed_x + scaled_w ,transformed_y + scaled_h), (0,255,0), 2)
